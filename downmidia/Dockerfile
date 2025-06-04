@@ -1,22 +1,24 @@
-# Dockerfile para construir a imagem do DownMidia
-FROM eclipse-temurin:21-alpine
+# Imagem base com Java 21 e Python para instalar yt-dlp
+FROM eclipse-temurin:21-jdk
 
-# Instalar dependências do sistema para ffmpeg e yt-dlp
-RUN apk add --no-cache ffmpeg python3 py3-pip curl
+# Atualiza pacotes e instala dependências do sistema
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    ffmpeg \
+    curl \
+    && apt-get clean
 
-# Instalar yt-dlp via pip
-RUN pip3 install yt-dlp --break-system-packages
+# Instala yt-dlp com pipz
+RUN pip3 install yt-dlp
 
-# Criar diretório para app
+# Cria diretório do app
 WORKDIR /app
 
-# Copiar jar do projeto para dentro do container
+# Copia o JAR da aplicação
 COPY target/downmidia-0.0.1-SNAPSHOT.jar app.jar
 
-# Criar pasta downloads para arquivos temporários
-RUN mkdir downloads
-
-# Expor porta 8080
+# Expõe a porta (ajuste se necessário)
 EXPOSE 8080
 
 # Comando para rodar a aplicação

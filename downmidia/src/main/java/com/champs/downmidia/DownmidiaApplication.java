@@ -8,6 +8,6 @@ public class DownmidiaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DownmidiaApplication.class, args);
+		System.out.println("Downmidia Application Started Successfully!");
 	}
-
 }
