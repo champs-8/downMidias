@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:8080';
+// const API_URL = 'http://localhost:8080'; // URL da API local
+const API_URL = 'https://downmidias.onrender.com'; // URL da API hospedada
+
 const qualityOption = document.getElementById('quality');  //select que receberá os options
 const url = document.getElementById('txturl');
 let arrQualityMp3 = [128, 192, 256, 320, 0]
