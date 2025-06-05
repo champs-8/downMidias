@@ -13,6 +13,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+// https://www.youtube.com/shorts/J2Zqn4dXuno
+
 @Service
 public class ConverterService {
 public File downloadAndConvert(String url, String format, String quality) throws Exception {
@@ -40,7 +42,8 @@ public File downloadAndConvert(String url, String format, String quality) throws
         } else if ("mp4".equalsIgnoreCase(format)) {
             pb = new ProcessBuilder(
                 "yt-dlp",
-                "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+                "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]",
+                "--merge-output-format", "mp4",
                 "-o", outputTemplate,
                 url
             );

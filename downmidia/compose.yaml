@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   downmidia:
     build: .
@@ -7,8 +5,5 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - downloads:/app/downloads
-    restart: unless-stopped # // reiniciar a menos que seja parado
-
-volumes:
-  downloads:
+      - ./downloads:/app/downloads
+    restart: unless-stopped  # reiniciar a menos que seja parado

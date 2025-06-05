@@ -34,11 +34,11 @@ public class ConverterController {
     public ResponseEntity<InputStreamResource> converter(
         @RequestParam String url, // URL do vídeo ou áudio a ser convertido
         @RequestParam String format, //'mp3' ou 'mp4'
-        @RequestParam (defaultValue = "best") String qualidade) {
+        @RequestParam (defaultValue = "best") String quality) {
 
         try{
             // Chama o serviço de conversão e retorna a resposta
-            File file = converterService.downloadAndConvert(url, format, qualidade);
+            File file = converterService.downloadAndConvert(url, format, quality);
             // Cria um InputStreamResource a partir do arquivo convertido
             InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
