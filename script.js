@@ -9,7 +9,7 @@ let arrQualityMp4 = [360, 480, 720, 1080, 0]
 
 const updateOption = (valueId) => {
     // Limpa opções anteriores
-    qualityOption.innerHTML = ''; 
+    qualityOption.innerHTML = '';
     
     //se a função for chamada pelo radio mp3 ou mp4
     if (valueId == 'mp3'){
@@ -65,4 +65,4 @@ const loadingAPI = () => {
 
 //quando iniciar o html, carregará as opções de qualidade e chamará a requisição de teste
 updateOption();
-loadingAPI(); 
+loadingAPI();
