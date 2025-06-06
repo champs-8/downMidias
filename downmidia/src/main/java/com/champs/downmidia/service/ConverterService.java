@@ -32,6 +32,7 @@ public File downloadAndConvert(String url, String format, String quality) throws
         if ("mp3".equalsIgnoreCase(format)) {
             pb = new ProcessBuilder(
                 "yt-dlp",
+                "--cookies", "cookies.txt",
                 "-f", "bestaudio",
                 "--extract-audio",
                 "--audio-format", "mp3",
@@ -42,6 +43,7 @@ public File downloadAndConvert(String url, String format, String quality) throws
         } else if ("mp4".equalsIgnoreCase(format)) {
             pb = new ProcessBuilder(
                 "yt-dlp",
+                "--cookies", "cookies.txt",
                 "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]",
                 "--merge-output-format", "mp4",
                 "-o", outputTemplate,
